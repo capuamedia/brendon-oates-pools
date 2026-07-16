@@ -425,6 +425,62 @@
 
     .services-cta { text-align: center; }
 
+    /* ── GALLERY ── */
+    .gallery-bg { background: var(--bg-svc); }
+
+    .gallery-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 90px 64px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 46px;
+    }
+
+    .gal-card {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      display: block;
+      cursor: pointer;
+    }
+
+    .gal-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: transform .4s;
+    }
+    .gal-card:hover .gal-img { transform: scale(1.06); }
+
+    .gal-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(6,16,40,.88) 0%, transparent 55%);
+      display: flex;
+      align-items: flex-end;
+      padding: 14px;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .gal-card:hover .gal-overlay { opacity: 1; }
+
+    .gal-cap { font-size: 13px; font-weight: 600; color: #fff; }
+
+    .gallery-sub-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--blue-lt);
+      text-transform: uppercase;
+      margin: 8px 0 16px;
+    }
+
     /* ── TESTIMONIALS ── */
     .testi-bg {
       background-color: var(--bg-testi);
@@ -750,6 +806,7 @@
     /* ── MOBILE ── */
     @media (max-width: 1024px) {
       .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid  { grid-template-columns: repeat(3, 1fr); }
     }
 
     @media (max-width: 768px) {
@@ -770,6 +827,9 @@
       .features-grid { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
       .testi-grid    { grid-template-columns: 1fr; }
+      .gallery-inner { padding: 60px 20px; }
+      .gallery-grid  { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .gal-img       { height: 160px; }
 
       .area-inner { grid-template-columns: 1fr; padding: 60px 20px; gap: 40px; }
       .area-img-col { order: -1; }
@@ -899,9 +959,8 @@
     <div class="services-grid">
       <div class="svc-card">
         <img class="svc-img"
-             src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?auto=format&fit=crop&w=700&q=80"
-             alt="Pool Cleaning Conejo Valley"
-             onerror="this.src='https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=700&q=80'">
+             src="pool-cleaning-in-progress.jpg"
+             alt="Pool Cleaning Conejo Valley">
         <div class="svc-overlay">
           <div class="svc-num">01 / Service</div>
           <h3 class="svc-title">Pool Cleaning</h3>
@@ -911,9 +970,8 @@
       </div>
       <div class="svc-card">
         <img class="svc-img"
-             src="https://images.unsplash.com/photo-1519315901367-f34ff9154487?auto=format&fit=crop&w=700&q=80"
-             alt="Pool Chemical Services Thousand Oaks"
-             onerror="this.src='https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=700&q=80'">
+             src="pool-automatic-cleaner.jpg"
+             alt="Pool Chemical Services Thousand Oaks">
         <div class="svc-overlay">
           <div class="svc-num">02 / Service</div>
           <h3 class="svc-title">Chemical Services</h3>
@@ -923,9 +981,8 @@
       </div>
       <div class="svc-card">
         <img class="svc-img"
-             src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=700&q=80"
-             alt="Pool Repair Newbury Park"
-             onerror="this.src='https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=700&q=80'">
+             src="pool-service-caddy.jpg"
+             alt="Pool Repair Newbury Park">
         <div class="svc-overlay">
           <div class="svc-num">03 / Service</div>
           <h3 class="svc-title">Pool Repairs</h3>
@@ -986,8 +1043,88 @@
 </div>
 
 <div class="glow-sep"></div>
+<!-- ═══════════ GALLERY ═══════════ -->
+<div class="gallery-bg" id="gallery">
+  <div class="gallery-inner">
+    <p class="sec-label">Recent Work</p>
+    <h2 class="sec-h2" style="text-transform:uppercase;">Pools Brendon <span class="blue">Keeps Pristine</span></h2>
+    <p class="sec-sub">A look at the properties on Brendon's route — every one of these is an active client, serviced on a regular schedule.</p>
+    <div class="gallery-grid">
+      <a class="gal-card" href="rock-lagoon-infinity-pool.jpg" target="_blank" rel="noopener">
+        <img class="gal-img" src="rock-lagoon-infinity-pool.jpg" alt="Natural rock lagoon infinity pool with waterfall and palms">
+        <div class="gal-overlay"><span class="gal-cap">Rock Lagoon &amp; Waterfall</span></div>
+      </a>
+      <a class="gal-card" href="infinity-pool-lake-view.jpg" target="_blank" rel="noopener">
+        <img class="gal-img" src="infinity-pool-lake-view.jpg" alt="Infinity edge pool overlooking a lake and mountains">
+        <div class="gal-overlay"><span class="gal-cap">Infinity Edge, Lake View</span></div>
+      </a>
+      <a class="gal-card" href="infinity-pool-mountain-view.jpg" target="_blank" rel="noopener">
+        <img class="gal-img" src="infinity-pool-mountain-view.jpg" alt="Rectangular infinity pool overlooking mountains">
+        <div class="gal-overlay"><span class="gal-cap">Infinity Edge, Mountain View</span></div>
+      </a>
+      <a class="gal-card" href="palm-island-pool.jpg" target="_blank" rel="noopener">
+        <img class="gal-img" src="palm-island-pool.jpg" alt="Freeform pool with palm tree island">
+        <div class="gal-overlay"><span class="gal-cap">Palm Island Retreat</span></div>
+      </a>
+      <a class="gal-card" href="tuscan-estate-pool.jpg" target="_blank" rel="noopener">
+        <img class="gal-img" src="tuscan-estate-pool.jpg" alt="Tuscan-style estate pool with umbrellas and lawn pavers">
+        <div class="gal-overlay"><span class="gal-cap">Tuscan-Style Estate Pool</span></div>
+      </a>
+      <a class="gal-card" href="raised-spa-stone-pool.jpg" target="_blank" rel="noopener">
+        <img class="gal-img" src="raised-spa-stone-pool.jpg" alt="Lazy-river style pool with raised stone spa">
+        <div class="gal-overlay"><span class="gal-cap">Raised Spa &amp; Stonework</span></div>
+      </a>
+      <a class="gal-card" href="columned-lap-pool.jpg" target="_blank" rel="noopener">
+        <img class="gal-img" src="columned-lap-pool.jpg" alt="Narrow lap pool framed by columns and hedges">
+        <div class="gal-overlay"><span class="gal-cap">Classic Courtyard Lap Pool</span></div>
+      </a>
+      <a class="gal-card" href="boulder-wall-pool.jpg" target="_blank" rel="noopener">
+        <img class="gal-img" src="boulder-wall-pool.jpg" alt="Pool with natural boulder retaining wall">
+        <div class="gal-overlay"><span class="gal-cap">Boulder Wall Lagoon Pool</span></div>
+      </a>
+      <a class="gal-card" href="spanish-estate-pool.jpg" target="_blank" rel="noopener">
+        <img class="gal-img" src="spanish-estate-pool.jpg" alt="Spanish-style estate pool with palm trees and travertine patio">
+        <div class="gal-overlay"><span class="gal-cap">Spanish-Style Estate Pool</span></div>
+      </a>
+      <a class="gal-card" href="rock-waterfall-spa-pool.jpg" target="_blank" rel="noopener">
+        <img class="gal-img" src="rock-waterfall-spa-pool.jpg" alt="Pool with raised spa and rock waterfall feature">
+        <div class="gal-overlay"><span class="gal-cap">Raised Spa &amp; Rock Waterfall</span></div>
+      </a>
+      <a class="gal-card" href="infinity-pool-spa-view.jpg" target="_blank" rel="noopener">
+        <img class="gal-img" src="infinity-pool-spa-view.jpg" alt="Infinity pool and spa overlooking the valley">
+        <div class="gal-overlay"><span class="gal-cap">Infinity Pool &amp; Spa</span></div>
+      </a>
+      <a class="gal-card" href="pool-spa-turf-patio.jpg" target="_blank" rel="noopener">
+        <img class="gal-img" src="pool-spa-turf-patio.jpg" alt="Pool and spa combo with turf and stone patio">
+        <div class="gal-overlay"><span class="gal-cap">Pool &amp; Spa Combo</span></div>
+      </a>
+      <a class="gal-card" href="pool-tanning-ledge.jpg" target="_blank" rel="noopener">
+        <img class="gal-img" src="pool-tanning-ledge.jpg" alt="Backyard pool with sun tanning ledge and tile trim">
+        <div class="gal-overlay"><span class="gal-cap">Sun Shelf &amp; Tile Trim</span></div>
+      </a>
+      <a class="gal-card" href="brick-coping-pool.jpg" target="_blank" rel="noopener">
+        <img class="gal-img" src="brick-coping-pool.jpg" alt="Oval pool with brick coping and pergola">
+        <div class="gal-overlay"><span class="gal-cap">Brick Coping Pool</span></div>
+      </a>
+      <a class="gal-card" href="kidney-pool-privacy-hedge.jpg" target="_blank" rel="noopener">
+        <img class="gal-img" src="kidney-pool-privacy-hedge.jpg" alt="Kidney-shaped pool with bamboo privacy hedge">
+        <div class="gal-overlay"><span class="gal-cap">Kidney Pool, Private Hedge</span></div>
+      </a>
+      <a class="gal-card" href="rectangular-pool-cleaning.jpg" target="_blank" rel="noopener">
+        <img class="gal-img" src="rectangular-pool-cleaning.jpg" alt="Rectangular pool mid-cleaning service">
+        <div class="gal-overlay"><span class="gal-cap">Weekly Service Visit</span></div>
+      </a>
+      <a class="gal-card" href="pool-service-before.jpg" target="_blank" rel="noopener">
+        <img class="gal-img" src="pool-service-before.jpg" alt="Pool before Brendon's service visit">
+        <div class="gal-overlay"><span class="gal-cap">Before The Visit</span></div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="glow-sep"></div>
 <!-- ═══════════ SERVICE AREA ═══════════ -->
-<div class="area-bg" id="gallery">
+<div class="area-bg" id="service-area">
   <div class="area-inner">
     <div>
       <p class="area-label">Service Areas</p>
@@ -1064,7 +1201,7 @@
         <li><a href="#">Pool Maintenance</a></li>
         <li><a href="#">Pool Repairs</a></li>
         <li><a href="#">Chemical Services</a></li>
-        <li><a href="#">Service Areas</a></li>
+        <li><a href="#service-area">Service Areas</a></li>
         <li><a href="#quote">Schedule Service</a></li>
       </ul>
     </div>
