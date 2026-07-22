@@ -725,6 +725,114 @@
 
     .trust-item i { color: var(--blue-lt); }
 
+    /* ── QUOTE FORM ── */
+    .quote-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+      text-align: left;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .quote-intro .cta-eyebrow,
+    .quote-intro .cta-h2,
+    .quote-intro .cta-sub { text-align: left; }
+
+    .quote-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-top: 24px;
+      margin-top: 28px;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+
+    .quote-contact .qc {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color .2s;
+      width: fit-content;
+    }
+
+    .quote-contact .qc i { color: var(--blue-lt); width: 16px; }
+    .quote-contact .qc:hover { color: #fff; }
+
+    .quote-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 14px;
+      padding: 32px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.35);
+    }
+
+    .qf-head { margin-bottom: 22px; }
+    .qf-head h3 { font-size: 22px; margin: 0 0 6px; }
+    .qf-head p { margin: 0; font-size: 13px; color: var(--gray); text-transform: none; }
+
+    .quote-form { display: flex; flex-direction: column; gap: 16px; }
+    .qf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .qf-field { display: flex; flex-direction: column; gap: 7px; }
+    .qf-field > span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gray-dk);
+    }
+    .qf-field > span em { font-style: normal; opacity: .8; text-transform: none; letter-spacing: .04em; }
+
+    .qf-field input,
+    .qf-field select,
+    .qf-field textarea {
+      width: 100%;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 7px;
+      padding: 12px 13px;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      transition: border-color .2s, box-shadow .2s, background .2s;
+    }
+    .qf-field textarea { resize: vertical; min-height: 72px; }
+    .qf-field input::placeholder,
+    .qf-field textarea::placeholder { color: var(--gray-dk); }
+    .qf-field select { appearance: none; cursor: pointer; }
+    .qf-field input:focus,
+    .qf-field select:focus,
+    .qf-field textarea:focus {
+      outline: none;
+      border-color: var(--blue-lt);
+      background: rgba(14,165,233,.06);
+      box-shadow: 0 0 0 3px rgba(14,165,233,.18);
+    }
+
+    .qf-submit { width: 100%; justify-content: center; margin-top: 4px; border: none; font-family: inherit; text-transform: none; letter-spacing: normal; }
+    .qf-submit:disabled { opacity: .6; cursor: not-allowed; }
+
+    .quote-sent { text-align: center; padding: 24px 8px; }
+    .quote-sent .qs-check {
+      width: 64px; height: 64px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, rgba(14,165,233,.25), rgba(14,165,233,.05));
+      border: 1px solid rgba(14,165,233,.5);
+    }
+    .quote-sent .qs-check i { font-size: 26px; color: var(--blue-lt); }
+    .quote-sent h3 { font-size: 22px; margin: 0 0 10px; }
+    .quote-sent p { color: var(--gray); font-size: 15px; line-height: 1.55; margin: 0; max-width: 360px; margin-inline: auto; }
+    .quote-sent a { color: var(--blue-lt); text-decoration: none; }
+
     /* ── FOOTER ── */
     footer {
       background: var(--bg-deep);
@@ -814,6 +922,7 @@
     @media (max-width: 1024px) {
       .features-grid { grid-template-columns: repeat(2, 1fr); }
       .gallery-grid  { grid-template-columns: repeat(3, 1fr); }
+      .quote-grid    { grid-template-columns: 1fr; gap: 40px; }
     }
 
     @media (max-width: 768px) {
@@ -844,6 +953,8 @@
 
       .cta-section { padding: 70px 20px; }
       .cta-trust { gap: 24px; }
+      .qf-row { grid-template-columns: 1fr; }
+      .quote-card { padding: 24px; }
 
       footer { padding: 50px 20px 24px; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 36px; }
@@ -1161,18 +1272,63 @@
 <section class="cta-section" id="quote">
   <div class="cta-bg-img"></div>
   <div class="cta-overlay"></div>
-  <div class="cta-inner">
-    <p class="cta-eyebrow">Your Pool Deserves Better</p>
-    <h2 class="cta-h2">Ready For A Pool You're <span class="blue">Proud Of?</span></h2>
-    <p class="cta-sub">Homeowners across Thousand Oaks, Newbury Park, Westlake Village, and Malibu have made the switch to a pool pro they can actually count on. Your first quote is free — no pressure, no obligation.</p>
-    <div class="cta-btns">
-      <a href="#quote" class="btn-primary"><i class="fas fa-calendar-check"></i> Get My Free Quote</a>
-      <a href="tel:8058077134" class="btn-outline"><i class="fas fa-phone"></i> Call Brendon Directly</a>
+  <div class="quote-grid">
+    <div class="quote-intro">
+      <p class="cta-eyebrow">Your Pool Deserves Better</p>
+      <h2 class="cta-h2">Ready For A Pool You're <span class="blue">Proud Of?</span></h2>
+      <p class="cta-sub">Homeowners across Thousand Oaks, Newbury Park, Westlake Village, and Malibu have made the switch to a pool pro they can actually count on. Your first quote is free — no pressure, no obligation.</p>
+      <div class="cta-trust" style="justify-content:flex-start; border-top:none; padding-top:0;">
+        <div class="trust-item"><i class="fas fa-file-contract"></i> No Contracts Required</div>
+        <div class="trust-item"><i class="fas fa-bolt"></i> Same-Week Response Guaranteed</div>
+        <div class="trust-item"><i class="fas fa-star"></i> 5-Star Rated in the Conejo Valley</div>
+      </div>
+      <div class="quote-contact">
+        <a href="tel:8058077134" class="qc"><i class="fas fa-phone"></i> (805) 807-7134</a>
+        <a href="mailto:hello@brendonoatespools.com" class="qc"><i class="fas fa-envelope"></i> hello@brendonoatespools.com</a>
+      </div>
     </div>
-    <div class="cta-trust">
-      <div class="trust-item"><i class="fas fa-file-contract"></i> No Contracts Required</div>
-      <div class="trust-item"><i class="fas fa-bolt"></i> Same-Week Response Guaranteed</div>
-      <div class="trust-item"><i class="fas fa-star"></i> 5-Star Rated in the Conejo Valley</div>
+    <div class="quote-card">
+      <div id="quote-form-wrap">
+        <form class="quote-form" id="quote-form">
+          <div class="qf-head">
+            <h3>Get Your Free Quote</h3>
+            <p>No obligation. We'll never share your info.</p>
+          </div>
+          <div class="qf-row">
+            <label class="qf-field"><span>Name</span><input type="text" name="name" placeholder="Your name" required></label>
+            <label class="qf-field"><span>Phone</span><input type="tel" name="phone" placeholder="(805) 000-0000" required></label>
+          </div>
+          <label class="qf-field"><span>Email</span><input type="email" name="email" placeholder="you@email.com" required></label>
+          <div class="qf-row">
+            <label class="qf-field">
+              <span>Service</span>
+              <select name="service">
+                <option value="" disabled selected>Choose a service&hellip;</option>
+                <option>Weekly Pool Cleaning</option>
+                <option>Chemical Services / Water Balancing</option>
+                <option>Pool Repairs</option>
+                <option>Equipment Installation</option>
+                <option>Green-to-Clean Cleanup</option>
+                <option>Not sure yet &mdash; help me choose</option>
+              </select>
+            </label>
+            <label class="qf-field"><span>City / ZIP</span><input type="text" name="location" placeholder="Thousand Oaks"></label>
+          </div>
+          <label class="qf-field">
+            <span>Project details <em>(optional)</em></span>
+            <textarea name="details" rows="3" placeholder="Pool size, current condition, how often you'd like service&hellip;"></textarea>
+          </label>
+          <button type="submit" class="btn-primary qf-submit">
+            Get My Free Quote
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </form>
+      </div>
+      <div id="quote-sent" class="quote-sent" style="display:none;">
+        <div class="qs-check"><i class="fas fa-check"></i></div>
+        <h3>Request received.</h3>
+        <p>Thanks &mdash; Brendon will reach out shortly with your free estimate. For anything urgent, call <a href="tel:8058077134">(805) 807-7134</a>.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1224,6 +1380,46 @@
     &copy; 2026 Brendon Oates Pool Service. All rights reserved.
   </div>
 </footer>
+
+<script>
+  // TODO: replace with the real Zapier "Catch Hook" URL once the Zap is set up
+  // (same pattern as hp-epoxy-coatings-site — hooks.zapier.com/hooks/catch/...)
+  var ZAPIER_WEBHOOK = '';
+
+  document.getElementById('quote-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = e.target;
+    var btn = form.querySelector('.qf-submit');
+
+    if (!ZAPIER_WEBHOOK) {
+      console.warn('ZAPIER_WEBHOOK is not set yet — form data was not sent anywhere.');
+      document.getElementById('quote-form-wrap').style.display = 'none';
+      document.getElementById('quote-sent').style.display = 'block';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    var data = {
+      name:         form.name.value,
+      phone:        form.phone.value,
+      email:        form.email.value,
+      service:      form.service.value,
+      location:     form.location.value,
+      details:      form.details.value,
+      submitted_at: new Date().toLocaleString('en-US', {timeZone:'America/Los_Angeles'})
+    };
+    fetch(ZAPIER_WEBHOOK, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    }).finally(function() {
+      document.getElementById('quote-form-wrap').style.display = 'none';
+      document.getElementById('quote-sent').style.display = 'block';
+    });
+  });
+</script>
 
 </body>
 </html>
