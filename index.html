@@ -1386,22 +1386,12 @@
 </footer>
 
 <script>
-  // TODO: replace with the real Zapier "Catch Hook" URL once the Zap is set up
-  // (same pattern as hp-epoxy-coatings-site — hooks.zapier.com/hooks/catch/...)
-  var ZAPIER_WEBHOOK = '';
+  var ZAPIER_WEBHOOK = 'https://hooks.zapier.com/hooks/catch/19258562/445f4lm/';
 
   document.getElementById('quote-form').addEventListener('submit', function(e) {
     e.preventDefault();
     var form = e.target;
     var btn = form.querySelector('.qf-submit');
-
-    if (!ZAPIER_WEBHOOK) {
-      console.warn('ZAPIER_WEBHOOK is not set yet — form data was not sent anywhere.');
-      document.getElementById('quote-form-wrap').style.display = 'none';
-      document.getElementById('quote-sent').style.display = 'block';
-      return;
-    }
-
     btn.disabled = true;
     btn.textContent = 'Sending…';
     var data = {
